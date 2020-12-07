@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -21,6 +21,12 @@ namespace DCToken.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(this.Application);
+
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
